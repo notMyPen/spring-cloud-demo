@@ -1,0 +1,32 @@
+server:
+  port: 8866
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:8861/eureka/
+
+spring:
+  application:
+    name: cn-config-server
+  cloud:
+    config:
+      server:
+        git:
+          #这是其他项目配置文件的git仓库地址
+          uri: https://github.com/notMyPen/config.git
+          #配置文件目录
+          searchPaths: '{application}'
+      #label: master
+      #github账号
+      username: notMyPen
+      #github密码
+      password: 9cqb8nyc
+
+security:
+  basic:
+    enabled: true
+  user:
+    #这是config-server的用户名和密码
+    name: config
+    password: 123456

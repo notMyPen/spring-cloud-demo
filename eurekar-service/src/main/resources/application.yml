@@ -1,0 +1,22 @@
+server:
+  port: 8861
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: 123456
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    healthcheck:
+      enabled: true
+    #是否将自身注册到eureka
+    registerWithEureka: false
+    #是否抓取注册信息
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
