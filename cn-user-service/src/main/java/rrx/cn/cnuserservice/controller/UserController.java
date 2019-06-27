@@ -12,6 +12,11 @@ import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+
+@Api("用户相关资源操作(演示Ribbon和Feign的区别)")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -19,8 +24,11 @@ public class UserController {
 	@Autowired
     private RestTemplate restTemplate;//演示Ribbon怎么用
 	
+	@ApiOperation(value = "获取用户基本信息",httpMethod = "GET")
+	@ApiResponse(code = 200, message = "success", response = String.class)
 	@GetMapping("/basicInfo/{id}")
 	public String basicInfo(@PathVariable String id){
+		System.out.println("id是："+id);
 		return "这是basicInfo";
 	}
 	
@@ -34,6 +42,7 @@ public class UserController {
 	 * @author xuhongyu
 	 * @return
 	 */
+	@ApiOperation(value = "获取用户订单列表(用于测试Ribbon)",httpMethod = "GET")
 	@GetMapping("/orderList")
 	@HystrixCommand(fallbackMethod="userFallbackMethod")
 	public String orderList(){

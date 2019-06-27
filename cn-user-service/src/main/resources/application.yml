@@ -22,7 +22,10 @@ feign:
   hystrix:
     #打开feign-hystrix（默认是关）
     enabled: true
-
+#ribbon的请求时间也要设置，因为feign用的是ribbon
+ribbon:
+  ReadTimeout:  30000
+  ConnectTimeout:  15000
 #熔断器
 hystrix:
   command:
