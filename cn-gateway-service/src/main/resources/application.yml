@@ -22,12 +22,9 @@ zuul:
     user:
       path: /user/**
       serviceId: user-service
-    msg:
-      path: /msg/**
-      serviceId: msg-service
-    statis:
-      path: /statis/**
-      serviceId: statis-service
+    biz:
+      path: /biz/**
+      serviceId: biz-service
   host:
     connect-timeout-millis: 10000
     socket-timeout-millis: 10000
@@ -40,11 +37,7 @@ user-service:
   ribbon:
     ReadTimeout: 10000
     ConnectTimeout: 10000
-msg-service:
-  ribbon:
-    ReadTimeout: 10000
-    ConnectTimeout: 10000
-statis-service:
+biz-service:
   ribbon:
     ReadTimeout: 10000
     ConnectTimeout: 10000
