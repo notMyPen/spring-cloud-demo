@@ -1,4 +1,4 @@
-package rrx.cn.cnorderservice.controller;
+package rrx.cnuo.service.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

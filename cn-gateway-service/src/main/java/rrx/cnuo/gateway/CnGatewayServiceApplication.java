@@ -1,4 +1,4 @@
-package rrx.cn.cngatewayservice;
+package rrx.cnuo.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

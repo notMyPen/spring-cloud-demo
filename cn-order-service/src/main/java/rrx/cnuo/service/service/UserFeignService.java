@@ -1,11 +1,11 @@
-package rrx.cn.cnorderservice.service;
+package rrx.cnuo.service.service;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import rrx.cn.cnorderservice.callback.HystrixFeignFallback;
-import rrx.cn.cnorderservice.config.MFeignConfig;
+import rrx.cnuo.service.callback.HystrixFeignFallback;
+import rrx.cnuo.service.config.MFeignConfig;
 
 /**
  * 通过内部访问user-service中的资源<br>

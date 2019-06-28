@@ -1,4 +1,4 @@
-package rrx.cn.cnconfigservice;
+package rrx.common.configservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

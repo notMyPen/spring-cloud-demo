@@ -1,8 +1,8 @@
-package rrx.cn.cnorderservice.callback;
+package rrx.cnuo.service.callback;
 
 import org.springframework.stereotype.Component;
 
-import rrx.cn.cnorderservice.service.UserFeignService;
+import rrx.cnuo.service.service.UserFeignService;
 
 /**
  * 断路器回调方法<br>

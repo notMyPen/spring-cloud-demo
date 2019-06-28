@@ -1,4 +1,4 @@
-package rrx.cn.cnorderservice.controller;
+package rrx.cnuo.service.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
-import rrx.cn.cnorderservice.service.UserFeignService;
+import rrx.cnuo.service.service.UserFeignService;
 
 @Api("订单相关资源操作(演示Ribbon和Feign的区别)")
 @RestController

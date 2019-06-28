@@ -1,4 +1,4 @@
-package rrx.cn.cnuserservice.controller;
+package rrx.cnuo.service.controller;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;

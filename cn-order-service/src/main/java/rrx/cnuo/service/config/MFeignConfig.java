@@ -1,4 +1,4 @@
-package rrx.cn.cnorderservice.config;
+package rrx.cnuo.service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

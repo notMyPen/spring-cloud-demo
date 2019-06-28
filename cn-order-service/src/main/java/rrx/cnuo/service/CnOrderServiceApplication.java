@@ -1,4 +1,4 @@
-package rrx.cn.cnorderservice;
+package rrx.cnuo.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

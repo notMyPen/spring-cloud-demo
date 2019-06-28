@@ -1,4 +1,4 @@
-package rrx.cn.cnuserservice.controller;
+package rrx.cnuo.service.controller;
 
 import java.util.Arrays;
 import java.util.List;
