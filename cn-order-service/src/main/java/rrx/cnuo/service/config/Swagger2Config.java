@@ -21,7 +21,8 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.gm.ds.api"))
+                .apis(RequestHandlerSelectors.basePackage("rrx.cnuo.service"))//按照接口类所在的包的位置
+//                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))//扫描带@Api注解的接口类
                 .paths(PathSelectors.any())
                 .build();
     }

@@ -21,6 +21,11 @@ public class OrderController {
 	@Autowired
 	private UserFeignService userFeignService;
 	
+	/**
+	 * 注意：当返回值为List<Map<String,Object>的时候，页面会提示error信息，这是因为swagger2不能识别当前返回值，swagger对泛型的支持很弱
+	 * @author xuhongyu
+	 * @return
+	 */
 	@ApiOperation(value = "获取订单列表",httpMethod = "GET")
 	@ApiResponse(code = 200,message = "success",response = List.class)
 	@GetMapping("/list")
