@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: biz-service
+ 
+server:
+  port: 8863
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:123456@localhost:8861/eureka/
+
+#微服务之间的网络连接
+feign:
+  client:
+    config:
+      default:
+        #增加超时时间的设置(feign默认1秒钟超时)
+        connectTimeout: 7000
+        readTimeout: 7000
+  hystrix:
+    #打开feign-hystrix（默认是关）
+    enabled: true
+#ribbon的请求时间也要设置，因为feign用的是ribbon
+ribbon:
+  ReadTimeout:  30000
+  ConnectTimeout:  15000
+#熔断器
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            #一般可以将hystrix的超时时间设置的比feign的超时时间长一些，否则feign的重试(如果配置了)将会失效
+            timeoutInMilliseconds: 8000
+
+
