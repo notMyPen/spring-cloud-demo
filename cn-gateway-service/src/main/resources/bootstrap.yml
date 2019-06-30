@@ -1,15 +1,38 @@
+server:
+  port: 8867
+
 spring:
   application:
     name: cn-gateway
- 
-server:
-  port: 8867
- 
+  #连接到spring cloud bus消息总线
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+  #连接到配置中心
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: cn-config-server
+      username: config
+      password: 123456
+      profile: dev
+
+#注册到eureka
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
-    serviceUrl:
+    service-url:
       defaultZone: http://root:123456@localhost:8861/eureka/
- 
+
+management:
+  security:
+    enabled: false
+
+#网关路由配置
 zuul:
   routes:
     order:
@@ -26,9 +49,9 @@ zuul:
       path: /biz/**
       serviceId: biz-service
   host:
-    connect-timeout-millis: 10000
-    socket-timeout-millis: 10000
- 
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+
 order-service:
   ribbon:
     ReadTimeout: 10000
@@ -42,3 +65,15 @@ biz-service:
     ReadTimeout: 10000
     ConnectTimeout: 10000
 
+#ribbon的请求时间必须要设置，因为zuul路由用的是ribbon
+ribbon:
+  ReadTimeout:  20000
+  ConnectTimeout:  20000
+#熔断器
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000

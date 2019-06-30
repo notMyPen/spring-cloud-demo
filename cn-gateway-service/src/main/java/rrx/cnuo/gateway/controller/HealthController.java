@@ -1,4 +1,4 @@
-package rrx.cnuo.cnbizservice.controller;
+package rrx.cnuo.gateway.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -19,7 +19,7 @@ public class HealthController {
     
     @GetMapping("/health")
     public String health() {
-        return " statis-service success";
+        return "order-service success";
     }
 
 }

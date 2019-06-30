@@ -1,14 +1,36 @@
+server:
+  port: 8863
+
 spring:
   application:
-    name: order-service
- 
-server:
-  port: 8864
+    name: biz-service
+  #连接到spring cloud bus消息总线
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+  #连接到配置中心
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: cn-config-server
+      username: config
+      password: 123456
+      profile: dev
 
+#注册到eureka
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
-    serviceUrl:
+    service-url:
       defaultZone: http://root:123456@localhost:8861/eureka/
+
+management:
+  security:
+    enabled: false
 
 #微服务之间的网络连接
 feign:
@@ -34,5 +56,3 @@ hystrix:
           thread:
             #一般可以将hystrix的超时时间设置的比feign的超时时间长一些，否则feign的重试(如果配置了)将会失效
             timeoutInMilliseconds: 8000
-
-
